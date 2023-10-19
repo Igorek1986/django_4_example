@@ -17,5 +17,5 @@
     </p>
     {{ post.blog|truncatewords:30|linebreaks }}
   {% endfor %}
-  {% include "paginator.html" with page=posts %}
+  {% include "paginator.html" with page=page_obj %}
 {% endblock %}

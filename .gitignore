@@ -1,1 +1,5 @@
 .DS_Store
+.env
+django_4_example.code-workspace
+.vscode/settings.json
+blog/mysite/db.sqlite3

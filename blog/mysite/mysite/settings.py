@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
-from dotenv import load_dotenv
 
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -30,8 +30,13 @@ SECRET_KEY = "django-insecure-9xrw-i!#n@o%!r%m#jd9%i%fbm*54w_*-ej&qs&t@iec+$+^hx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["coder.igorek1986.ru", "127.0.0.1"]
+ALLOWED_HOSTS = [
+    "coder.igorek1986.ru",
+    "127.0.0.1",
+]
 # ALLOWED_HOSTS = [os.getenv("ALLOWED_HOSTS")]
+
+SITE_ID = 1
 
 # Application definition
 
@@ -43,6 +48,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "blog.apps.BlogConfig",
+    "taggit",
+    "django.contrib.sites",
+    "django.contrib.sitemaps",
+    "django.contrib.postgres",
 ]
 
 MIDDLEWARE = [
@@ -81,8 +90,12 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "blog",
+        "USER": "blog",
+        "PASSWORD": "222462",
+        "HOST": "192.168.88.118",
+        "PORT": "5432",
     }
 }
 

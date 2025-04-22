@@ -27,10 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_REDIRECT_URL = "account:dashboard"
-LOGIN_URL = "account:login"
-# LOGOUT_REDIRECT_URL = "account:logout"
-LOGOUT_URL = "account:logout"
+LOGIN_REDIRECT_URL = "dashboard"
+LOGIN_URL = "login"
+# LOGOUT_REDIRECT_URL = "logout"
+LOGOUT_URL = "logout"
 
 # Application definition
 
@@ -125,3 +125,5 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

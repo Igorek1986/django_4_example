@@ -24,7 +24,7 @@
   <span class="user">
     {% if request.user.is_authenticated %}
       Hello {{ request.user.first_name|default:request.user.username }},
-{#            <a href="{% url "logout" %}">Logout</a> # Django < 5:0#}
+      {#            <a href="{% url "logout" %}">Logout</a> # Django < 5:0#}
       <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
         <button type="submit">logout</button>
@@ -34,6 +34,16 @@
     {% endif %}
   </span>
 </div>
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">
+        {{ message|safe }}
+        <a href="#" class="close">x</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
 <div id="content">
   {% block content %}
   {% endblock %}
